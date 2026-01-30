@@ -19,7 +19,8 @@ class UserController extends Controller
     {
         $request->validate([
             'username' => 'required|string|min:3',
-            'email' => 'required|string|email',
+            'age' => 'required|string|email',
+            'age' => 'required|int',
             'sex' => 'required|string|max:1',
             'password' => 'required|string|min:8'
         ]);
@@ -27,6 +28,7 @@ class UserController extends Controller
         Users::create([
             'username' => $request->username,
             'email' => $request->email,
+            'age' => $request->age,
             'sex' => $request->sex,
             'password' => Hash::make($request->password),
         ]);
@@ -41,8 +43,10 @@ class UserController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
+        $username = Users::where('username', $request->username)->value('username');
         if (Auth::attempt(['username' => strtolower($request->username), 'password' => strtolower($request->password)])) {
             $request->session()->regenerate();
+            $request->session()->put('username', $username);
             return redirect()->route('dashboard')->with(['Success' => 'Berhasil Login!']);
         }
 

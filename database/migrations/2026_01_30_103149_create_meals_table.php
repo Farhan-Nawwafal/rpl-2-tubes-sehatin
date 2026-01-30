@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sleep_tracker', function (Blueprint $table) {
+        Schema::create('meals', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->date('date');
-            $table->integer('sleep_start');
-            $table->integer('sleep_end');
+            $table->string('meal_type');
             $table->uuid('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sleep_tracker');
+        Schema::dropIfExists('meals');
     }
 };

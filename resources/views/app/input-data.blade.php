@@ -29,9 +29,10 @@
             </div>
 
             {{-- Sleep Tracker Form --}}
-            <form action="" method="POST">
+            <form action="{{ route('sleep.data.create') }}" method="POST">
                 @csrf
                 <input type="hidden" name="date" class="hidden-date-input" value="{{ date('Y-m-d') }}">
+
 
                 <div class="bg-white rounded-xl shadow-md p-8 bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
                     <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -81,7 +82,7 @@
             </form>
 
             {{-- Meals Tracker Form --}}
-            <form action="" method="POST">
+            <form action="{{ route('meals.data.create') }}" method="POST">
                 @csrf
                 <input type="hidden" name="date" class="hidden-date-input" value="{{ date('Y-m-d') }}">
 
@@ -169,19 +170,4 @@
         </div>
     </div>
 
-    {{-- Script untuk sinkronisasi Tanggal --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const globalDate = document.getElementById('globalDate');
-            const hiddenInputs = document.querySelectorAll('.hidden-date-input');
-
-            // Saat halaman load, isi hidden inputs dengan nilai awal
-            hiddenInputs.forEach(input => input.value = globalDate.value);
-
-            // Saat user ganti tanggal, update semua hidden input di form bawahnya
-            globalDate.addEventListener('change', function() {
-                hiddenInputs.forEach(input => input.value = this.value);
-            });
-        });
-    </script>
 </x-layout>

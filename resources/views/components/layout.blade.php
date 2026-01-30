@@ -27,8 +27,8 @@
                         Dashboard
                     </a>
 
-                    <a href="{{ route('input.data') }}"
-                        class="block px-6 py-3 transition-colors {{ request()->routeIs('input.data') ? 'bg-[#007DFC] text-white' : 'text-gray-700 hover:bg-[#007DFC] hover:text-white' }}">
+                    <a href="{{ route('input.data.page') }}"
+                        class="block px-6 py-3 transition-colors {{ request()->routeIs('input.data.page') ? 'bg-[#007DFC] text-white' : 'text-gray-700 hover:bg-[#007DFC] hover:text-white' }}">
                         Input Data
                     </a>
 
