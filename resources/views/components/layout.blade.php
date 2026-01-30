@@ -51,7 +51,7 @@
 
             {{-- Bagian Bawah: Tombol Logout --}}
             <div class="p-6">
-                <form action="" method="POST">
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit"
                         class="w-full bg-gradient-to-r font-bold mb-10 from-[#ff4b4b] to-[#ff7373] text-white px-10 py-3 rounded-lg shadow hover:opacity-90 transition">

@@ -42,9 +42,22 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt(['username' => strtolower($request->username), 'password' => strtolower($request->password)])) {
+            $request->session()->regenerate();
             return redirect()->route('dashboard')->with(['Success' => 'Berhasil Login!']);
         }
 
         return back()->withErrors(['username' => 'Username atau password Anda salah!']);
     }
+
+    public function logout(Request $request) {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login')->with(['Success' => 'Berhasil Logout!']);
+    }
 }
+
+

@@ -7,29 +7,33 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function() {
+Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::middleware(['auth'])->prefix('app')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
+    Route::get('/input-data', function () {
+        return view('app.input-data');
+    })->name('input.data');
+    Route::get('/journal', [JournalController::class, 'index'])->name('journal');
+    Route::get('/reminder', [ReminderController::class, 'index'])->name('reminder');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+});
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->name('dashboard');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/register', function () {
+        return view('auth.register');
+    })->name('register');
 
-Route::get('/input-data', function() {
-    return view ('app.input-data');
-})->name('input.data');
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('login');
 
-Route::get('/journal', [JournalController::class, 'index'])->name('journal');
-Route::get('/reminder', [ReminderController::class, 'index'])->name('reminder');
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-
-Route::post('/register', [UserController::class, 'createUser'])->name('register.create');
-Route::post('/login', [UserController::class, 'getUser'])->name('login.validate');
+    Route::post('/register', [UserController::class, 'createUser'])->name('register.create');
+    Route::post('/login', [UserController::class, 'getUser'])->name('login.validate');
+});
