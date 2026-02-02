@@ -4,6 +4,7 @@ use App\Http\Controllers\JournalController;
 use App\Http\Controllers\MealsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReminderController;
+use App\Http\Controllers\ScreenTimeController;
 use App\Http\Controllers\SleepController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::middleware(['auth'])->prefix('app')->group(function () {
     })->name('input.data.page');
     Route::post('/input-data/sleep', [SleepController::class, 'saveSleepData'])->name('sleep.data.create');
     Route::post('/input-data/meals', [MealsController::class, 'saveMealsData'])->name('meals.data.create');
+    Route::post('/input-data/screen-time', [ScreenTimeController::class, 'saveScreenTimeData'])->name('screen.time.data.create');
 
     Route::get('/journal', [JournalController::class, 'index'])->name('journal');
     Route::get('/reminder', [ReminderController::class, 'index'])->name('reminder');
