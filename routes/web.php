@@ -24,13 +24,16 @@ Route::middleware(['auth'])->prefix('app')->group(function () {
     Route::get('/input-data', function () {
         return view('app.input-data');
     })->name('input.data.page');
+    Route::get('/journal', [JournalController::class, 'render'])->name('journal');
+    Route::get('/reminder', [ReminderController::class, 'render'])->name('reminder');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
     Route::post('/input-data/sleep', [SleepController::class, 'saveSleepData'])->name('sleep.data.create');
     Route::post('/input-data/meals', [MealsController::class, 'saveMealsData'])->name('meals.data.create');
     Route::post('/input-data/screen-time', [ScreenTimeController::class, 'saveScreenTimeData'])->name('screen.time.data.create');
+    Route::post('/journal/input-data', [JournalController::class, 'createJournal'])->name('journal.create');
 
-    Route::get('/journal', [JournalController::class, 'index'])->name('journal');
-    Route::get('/reminder', [ReminderController::class, 'index'])->name('reminder');
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('/journal/{id}', [JournalController::class, 'editJournal'])->name('journal.update');
 });
 
 Route::middleware(['guest'])->group(function () {
