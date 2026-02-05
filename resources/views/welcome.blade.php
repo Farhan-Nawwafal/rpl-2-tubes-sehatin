@@ -10,9 +10,6 @@
 
 <body class="bg-[#f3f3f3]">
 
-    {{--
-        DATA FITUR (Biasanya dari Controller, tapi bisa didefinisikan di sini untuk Landing Page statis)
-    --}}
     @php
         $features = [
             [

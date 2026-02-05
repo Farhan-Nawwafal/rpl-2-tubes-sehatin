@@ -4,35 +4,49 @@
 
         {{-- SUCCESS / ERROR MESSAGES --}}
         @if (session('success'))
-            <div class="px-4 py-3 rounded mb-6 border bg-green-100 border-green-400 text-green-700">
+            <div class="px-4 py-3 rounded mb-6 border bg-green-100 border-green-400 text-green-700" id="success-message">
                 {{ session('success') }}
             </div>
+
+            <script>
+                let successMessage = document.getElementById('success-message');
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            </script>
         @endif
 
         @if ($errors->any())
-            <div class="px-4 py-3 rounded mb-6 border bg-red-100 border-red-400 text-red-700">
+            <div class="px-4 py-3 rounded mb-6 border bg-red-100 border-red-400 text-red-700" id="error-message">
                 <ul class="list-disc list-inside">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
+            <script>
+                let errorMessage = document.getElementById('error-message');
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+            </script>
         @endif
 
+        <div class="mb-6">
+            <label class="text-xl font-semibold mb-4 flex items-center gap-2">
+                Select Date
+            </label>
+            <input type="date" name="date" id="globalDate" value="{{ date('Y-m-d') }}"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#007DFC]" />
+        </div>
+
         <div class="space-y-8">
-            <div class="mb-6">
-                <label class="text-xl font-semibold mb-4 flex items-center gap-2">
-                    Select Date
-                </label>
-                <input type="date" id="globalDate" value="{{ date('Y-m-d') }}"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#007DFC]" />
-            </div>
 
             {{-- Sleep Tracker Form --}}
             <form action="{{ route('sleep.data.create') }}" method="POST">
                 @csrf
-                <input type="hidden" name="date" class="hidden-date-input" value="{{ date('Y-m-d') }}">
 
+                <input type="hidden" name="date" class="hidden-date-input" value="{{ date('Y-m-d') }}" />
 
                 <div class="bg-white rounded-xl shadow-md p-8 bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
                     <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -84,7 +98,8 @@
             {{-- Meals Tracker Form --}}
             <form action="{{ route('meals.data.create') }}" method="POST">
                 @csrf
-                <input type="hidden" name="date" class="hidden-date-input" value="{{ date('Y-m-d') }}">
+
+                <input type="hidden" name="date" class="hidden-date-input" value="{{ date('Y-m-d') }}" />
 
                 <div class="bg-white rounded-xl shadow-md p-8 bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
                     <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -136,9 +151,10 @@
             </form>
 
             {{-- Screen Time Form --}}
-            <form action="" method="POST">
+            <form action="{{ route('screen.time.data.create') }}" method="POST">
                 @csrf
-                <input type="hidden" name="date" class="hidden-date-input" value="{{ date('Y-m-d') }}">
+
+                <input type="hidden" name="date" class="hidden-date-input" value="{{ date('Y-m-d') }}" />
 
                 <div class="bg-white rounded-xl shadow-md p-8 bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
                     <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -169,5 +185,14 @@
 
         </div>
     </div>
+
+    <script>
+        const globalDate = document.getElementById('globalDate');
+        const hiddenInputs = document.querySelectorAll('.hidden-date-input');
+        hiddenInputs.forEach(input => input.value = globalDate.value);
+        globalDate.addEventListener('change', () => {
+            hiddenInputs.forEach(input => input.value = globalDate.value);
+        })
+    </script>
 
 </x-layout>
