@@ -22,8 +22,7 @@
                 <div class="bg-white p-4 rounded-lg shadow-sm bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
                     <h2 class="text-lg text-gray-600 mb-2">💤 Average Sleep Hours</h2>
                     <div class="text-3xl font-bold text-[#007DFC]">
-                        {{-- {{ number_format($avgSleepHours, 1) }} --}}
-                        1
+                        {{ number_format($avgSleeps, 1) }}
                     </div>
                     <div class="text-gray-500 mt-1">hours per night</div>
                 </div>
@@ -37,7 +36,7 @@
                         <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                             <h2 class="text-sm font-semibold text-gray-600 mb-2">☀️ Breakfast</h2>
                             <div class="text-2xl font-bold text-[#007DFC]">
-                                1
+                                {{ $countBreakfast }}
                             </div>
                             <div class="text-xs text-gray-500 mt-1">meals</div>
                         </div>
@@ -45,7 +44,7 @@
                         <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                             <h2 class="text-sm font-semibold text-gray-600 mb-2">🥪 Lunch</h2>
                             <div class="text-2xl font-bold text-[#007DFC]">
-                                1
+                                {{ $countLunch }}
                             </div>
                             <div class="text-xs text-gray-500 mt-1">meals</div>
                         </div>
@@ -53,7 +52,7 @@
                         <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                             <h2 class="text-sm font-semibold text-gray-600 mb-2">🌙 Dinner</h2>
                             <div class="text-2xl font-bold text-[#007DFC]">
-                                1
+                                {{ $countDinner }}
                             </div>
                             <div class="text-xs text-gray-500 mt-1">meals</div>
                         </div>
@@ -63,8 +62,7 @@
                 <div class="bg-white p-4 rounded-lg shadow-sm bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
                     <h2 class="text-lg text-gray-600 mb-2">⌛ Average Screen Time</h2>
                     <div class="text-4xl font-bold text-[#007DFC]">
-                        {{-- {{ number_format($avgScreenTime, 1) }} --}}
-                        1
+                        {{ number_format($avgScreenTime, 1) }}
                     </div>
                     <div class="text-gray-500 mt-1">hours per day</div>
                 </div>

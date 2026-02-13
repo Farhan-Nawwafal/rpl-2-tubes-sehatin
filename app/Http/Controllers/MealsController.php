@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Meals;
 use App\Models\Users;
+use App\Services\ReminderService;
 use Carbon\Carbon;
 
 class MealsController extends Controller
 {
-    public function create()
+    public function renderView()
     {
         return view('app.input-data');
     }
@@ -52,6 +53,11 @@ class MealsController extends Controller
                 'meal_type' => $request->meal_type,
                 'user_id' => $userId,
             ]);
+
+            $reminderService = new ReminderService();
+
+            $reminderService->generateReminder($userId, $request->date);
+
             return redirect()->route('input.data.page')->with(['success' => 'Berhasil Menambahkan Data Meals ' . $request->meal_type]);
         }
 

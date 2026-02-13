@@ -25,31 +25,32 @@
                     <div class="space-y-3">
 
                         {{-- 1. SLEEP MESSAGE --}}
-                        @if (!empty($reminder->sleepMessage))
+                        @if (!empty($reminder->sleep_message))
                             <div
-                                class="p-4 rounded-lg {{ strtolower($reminder->sleepStatus) === 'good' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
-                                {{ $reminder->sleepMessage }}
+                                class="p-4 rounded-lg {{ strtolower($reminder->sleep_status) === 'good' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                                {{ $reminder->sleep_message }}
                             </div>
                         @endif
 
                         {{-- 2. EAT MESSAGE --}}
-                        @if (!empty($reminder->eatMessage))
+                        @if (!empty($reminder->eat_message))
                             <div
-                                class="p-4 rounded-lg {{ strtolower($reminder->eatStatus) === 'good' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
-                                {{ $reminder->eatMessage }}
+                                class="p-4 rounded-lg {{ strtolower($reminder->eat_status) === 'good' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                                {{ $reminder->eat_message }}
                             </div>
                         @endif
 
                         {{-- 3. SCREEN TIME MESSAGE --}}
-                        @if (!empty($reminder->screenTimeMessage))
+                        @if (!empty($reminder->screen_time_message))
                             <div
-                                class="p-4 rounded-lg {{ strtolower($reminder->screenTimeStatus) === 'good' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
-                                {{ $reminder->screenTimeMessage }}
+                                class="p-4 rounded-lg {{ strtolower($reminder->screen_time_status) === 'good' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                                {{ $reminder->screen_time_message }}
                             </div>
                         @endif
 
                     </div>
                 </div>
+                <br>
 
             @empty
                 {{-- Tampilan kalau array dummy di atas kamu kosongin ($reminders = []) --}}

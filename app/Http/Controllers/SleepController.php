@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ReminderService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Sleep;
@@ -11,7 +12,7 @@ use Carbon\Carbon;
 class SleepController extends Controller
 {
 
-    public function create()
+    public function renderView()
     {
         return view('app.input-data');
     }
@@ -63,6 +64,11 @@ class SleepController extends Controller
             'duration' => $sleepDuration,
             'user_id' => $userId,
         ]);
+
+        $reminderService = new ReminderService();
+
+        $reminderService->generateReminder($userId, $request->date);
+
         return redirect()->route('input.data.page')->with(['success' => 'Berhasil Menambahkan Data Sleep!']);
     }
 }

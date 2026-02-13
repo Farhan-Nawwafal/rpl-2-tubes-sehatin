@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function create()
+    public function register()
     {
         return view('auth.register');
+    }
+    public function login()
+    {
+        return view('auth.login');
     }
 
     public function createUser(Request $request)
