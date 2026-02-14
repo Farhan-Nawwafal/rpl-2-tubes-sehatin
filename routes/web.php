@@ -18,11 +18,10 @@ Route::get('/', function () {
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->prefix('app')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'render'])->name('dashboard');
-    Route::get('/dashboard/avgSleep', [DashboardController::class, 'calculateAvgSleep'])->name('dashboard.avg.sleep');
+    Route::get('/dashboard', [DashboardController::class, 'renderVisualization'])->name('dashboard');
     Route::get('/input-data', [SleepController::class, 'renderVIew'])->name('input.data.page');
     Route::get('/journal', [JournalController::class, 'render'])->name('journal');
-    Route::get('/reminder', [ReminderController::class, 'index'])->name('reminder');
+    Route::get('/reminder', [ReminderController::class, 'showReminder'])->name('reminder');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
     Route::post('/input-data/sleep', [SleepController::class, 'saveSleepData'])->name('sleep.data.create');
