@@ -11,7 +11,7 @@
             <div class="bg-white p-4 rounded-lg shadow-sm bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
                 <h2 class="text-lg text-gray-600 mb-2">💤 Average Sleep Hours</h2>
                 <div class="text-3xl font-bold text-[#007DFC]">
-                    {{ number_format($avgSleeps, 1) }}
+                    {{ number_format($avgSleep, 1) }}
                 </div>
                 <div class="text-gray-500 mt-1">hours per night</div>
             </div>
@@ -25,7 +25,7 @@
                     <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                         <h2 class="text-sm font-semibold text-gray-600 mb-2">☀️ Breakfast</h2>
                         <div class="text-2xl font-bold text-[#007DFC]">
-                            {{ $countBreakfast }}
+                            {{ $breakfast }}
                         </div>
                         <div class="text-xs text-gray-500 mt-1">meals</div>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                         <h2 class="text-sm font-semibold text-gray-600 mb-2">🥪 Lunch</h2>
                         <div class="text-2xl font-bold text-[#007DFC]">
-                            {{ $countLunch }}
+                            {{ $lunch }}
                         </div>
                         <div class="text-xs text-gray-500 mt-1">meals</div>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                         <h2 class="text-sm font-semibold text-gray-600 mb-2">🌙 Dinner</h2>
                         <div class="text-2xl font-bold text-[#007DFC]">
-                            {{ $countDinner }}
+                            {{ $dinner }}
                         </div>
                         <div class="text-xs text-gray-500 mt-1">meals</div>
                     </div>
@@ -75,13 +75,9 @@
 
     </div>
 
-    {{-- SCRIPT GRAPH --}}
-    {{-- Gunakan type="module" agar dia berjalan setelah app.js (ApexCharts) di-load --}}
     <script type="module">
-        // Mengambil data dari Controller Laravel yang dikirim via JSON
         const chartData = @json($screenTimeUser);
 
-        // Memisahkan label (tanggal) dan series (durasi)
         const categories = chartData.map(item => item.date);
         const seriesData = chartData.map(item => item.duration);
 

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ReminderController extends Controller
 {
-    public function index(Request $request)
+    public function showReminder(Request $request)
     {
         // Ambil reminder milik user yang login, urutkan dari terbaru
         $username = $request->session()->get('username');

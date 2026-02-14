@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Heylth</title>
+    <title>Login - Sehatin</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -16,7 +16,7 @@
 
             {{-- Header --}}
             <h1 class="text-4xl font-bold text-center mb-8">
-                Welcome Back to <span class="text-[#007DFC]">Heylth</span>!
+                Welcome Back to <span class="text-[#007DFC]">Sehatin</span>!
             </h1>
 
             {{-- Form Login --}}

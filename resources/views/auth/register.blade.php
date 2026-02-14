@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Register - Sehatin</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -13,7 +13,7 @@
     <div class="min-h-screen flex items-center justify-center px-4">
         <div class="w-full max-w-md">
             <h1 class="text-4xl font-bold text-center mb-8">
-                Welcome to <span class="text-[#007DFC]">Heylth</span>!
+                Welcome to <span class="text-[#007DFC]">Sehatin</span>!
             </h1>
 
             <form action="{{ route('register.create') }}" method="POST" class="space-y-4">
