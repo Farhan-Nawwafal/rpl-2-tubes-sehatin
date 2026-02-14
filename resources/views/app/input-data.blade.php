@@ -51,7 +51,6 @@
                 <div class="bg-white rounded-xl shadow-md p-8 bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
                     <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
                         <span class="p-2 bg-[#E6F0FF] rounded-full text-[#007DFC] shadow-sm">
-                            {{-- Icon Moon SVG --}}
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ScreenTime;
 use App\Models\Users;
+use App\Services\ReminderService;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class ScreenTimeController extends Controller
 {
-    public function create()
+    public function renderView()
     {
         return view('app.input-data');
     }
 
-    public function saveScreenTimeData(Request $request, ScreenTime $screenTime)
+    public function saveScreenTimeData(Request $request)
     {
         $username = $request->session()->get('username');
         $userId = Users::where('username', $username)->value('id');
@@ -51,6 +52,10 @@ class ScreenTimeController extends Controller
                 'user_id' => $userId,
             ]);
 
+            $reminderService = new ReminderService();
+
+            $reminderService->generateReminder($userId, $request->date);
+
             return redirect()->route('input.data.page')->with(['success' => 'Berhasil input data screen time!']);
         }
 
@@ -65,6 +70,10 @@ class ScreenTimeController extends Controller
             'duration' => $request->duration,
             'user_id' => $userId,
         ]);
+
+        $reminderService = new ReminderService();
+
+        $reminderService->generateReminder($userId, $request->date);
 
         return redirect()->route('input.data.page')->with(['success' => 'Berhasil update screen time']);
     }

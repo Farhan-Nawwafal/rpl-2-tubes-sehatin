@@ -9,9 +9,13 @@ use Carbon\Carbon;
 
 class JournalController extends Controller
 {
-    public function render()
+    public function render(Request $request)
     {
-        $journals = Journal::all();
+        $username = $request->session()->get('username');
+        $userId = Users::where('username', $username)->first()->id;
+        $journals = Journal::where('user_id', $userId)
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('app.journal', compact('journals'));
     }
 
