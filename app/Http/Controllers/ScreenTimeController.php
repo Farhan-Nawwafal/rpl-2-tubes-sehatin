@@ -16,7 +16,7 @@ class ScreenTimeController extends Controller
         return view('app.input-data');
     }
 
-    public function saveScreenTimeData(Request $request, ScreenTime $screenTime)
+    public function saveScreenTimeData(Request $request)
     {
         $username = $request->session()->get('username');
         $userId = Users::where('username', $username)->value('id');

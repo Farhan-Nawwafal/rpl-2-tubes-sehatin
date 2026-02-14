@@ -69,10 +69,8 @@
 
                 <div class="bg-white p-6 rounded-lg shadow-sm bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
                     <h2 class="text-lg text-gray-600 mb-2">Lifestyle Status</h2>
-                    {{-- <div class="inline-block px-4 py-2 rounded-lg {{ $lifestyleColor }} text-white text-xl font-bold mt-2"> --}}
-                    <div class="inline-block px-4 py-2 rounded-lg text-white text-xl font-bold mt-2">
-                        {{-- {{ $lifestyleStatus }} --}}
-                        1
+                    <div class="inline-block px-4 py-2 rounded-lg {{ $color }} text-white text-xl font-bold mt-2">
+                       {{ $status }}
                     </div>
                 </div>
 
@@ -80,16 +78,16 @@
 
             <div
                 class="mt-8 bg-white p-6 rounded-lg shadow-sm bg-gradient-to-b from-[#E1F1FE] via-[#FAFCFF] to-[#FFFF]">
-                <h2 class="text-lg font-bold text-gray-800 mb-4">Screen Time Trend</h2>
+                <h2 class="text-lg font-bold text-gray-800 mb-4">Screen Time Trend {{ $year }}</h2>
                 <div id="screenTimeChart" class="w-full h-[200px]"></div>
             </div>
 
         </div>
     </x-layout>
 
-    {{-- <script>
+    <script>
         // Mengambil data dari Controller Laravel yang dikirim via JSON
-        const chartData = @json($screenTimeChart);
+        const chartData = @json($screenTimeUser);
 
         // Memisahkan label (tanggal) dan series (durasi)
         const categories = chartData.map(item => item.date);
@@ -108,13 +106,16 @@
                 },
                 toolbar: {
                     show: false
-                } // Biar bersih seperti recharts
+                },
+            },
+            markers: {
+                size: 7,
             },
             dataLabels: {
                 enabled: false
             },
             stroke: {
-                curve: 'smooth', // 'monotone' di recharts mirip 'smooth' di sini
+                curve: 'straight',
                 width: 3,
                 colors: ['#007DFC']
             },
@@ -151,7 +152,7 @@
 
         var chart = new ApexCharts(document.querySelector("#screenTimeChart"), options);
         chart.render();
-    </script> --}}
+    </script>
 </body>
 
 </html>

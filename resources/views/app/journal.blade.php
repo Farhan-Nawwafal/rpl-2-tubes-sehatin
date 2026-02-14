@@ -35,7 +35,6 @@
         }
     }">
 
-        {{-- HEADER --}}
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-3xl font-bold text-gray-800">Journal</h1>
 
@@ -60,13 +59,14 @@
 
         {{-- Contents Journal --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach ($journals as $journal)
+            @forelse ($journals as $journal)
                 <div class="bg-white p-6 rounded-lg shadow border border-gray-100">
-                    <p class="text-gray-500 mb-2">{{ date('l', strtotime($journal->date)) }}, {{ $journal->date }}</p>
+                    <p class="text-gray-500 mb-2">{{ date('l', strtotime($journal->date)) }},
+                        {{ date('d', strtotime($journal->date)) }} {{ date('F', strtotime($journal->date)) }}
+                        {{ date('Y', strtotime($journal->date)) }} </p>
                     <div class="text-4xl mb-2" x-text="getMoodEmoji('{{ $journal->mood }}')"></div>
                     <h3 class="text-xl font-bold text-gray-800"> {{ $journal->title }} </h3>
                     <p class="text-gray-600">{{ $journal->description }}</p>
-                    {{-- Edit Button --}}
                     <button
                         @click="
                             isEditing = true;
@@ -82,7 +82,11 @@
                         Edit
                     </button>
                 </div>
-            @endforeach
+            @empty
+                <div class="text-gray-500 mt-12">
+                    No Journal yet. Please add your Journal first!
+                </div>
+            @endforelse
         </div>
 
         {{-- Journal Modal --}}
@@ -145,7 +149,6 @@
                             placeholder="Describe your mood..."></textarea>
                     </div>
 
-                    {{-- BUTTONS --}}
                     <div class="flex gap-4 mt-6">
                         <button type="button" @click="showModal = false"
                             class="flex-1 bg-gray-300 text-gray-700 px-4 py-3 rounded-lg hover:bg-gray-400 transition-colors">

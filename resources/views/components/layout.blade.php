@@ -49,7 +49,6 @@
                 </nav>
             </div>
 
-            {{-- Bagian Bawah: Tombol Logout --}}
             <div class="p-6">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
@@ -62,7 +61,6 @@
 
         </aside>
 
-        {{-- MAIN CONTENT --}}
         <main class="flex-1 p-8 h-screen overflow-y-auto">
             {{ $slot }}
         </main>

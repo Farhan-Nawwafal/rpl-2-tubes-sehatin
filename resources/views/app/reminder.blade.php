@@ -1,22 +1,11 @@
 <x-layout>
-    {{--
-        DUMMY DATA (STATIC)
-        Ini simulasi data seolah-olah dikirim dari Backend.
-        Nanti kalau Backend sudah siap, hapus blok @php ini dan pakai controller.
-    --}}
-    @php
-
-    @endphp
-
     <div>
         <h1 class="text-3xl font-bold text-gray-800 mb-8">Reminder</h1>
 
         <div class="space-y-8">
-            {{-- Loop data dummy di atas --}}
             @forelse ($reminders as $reminder)
                 <div class="bg-white p-6 rounded-lg shadow">
 
-                    {{-- Header Tanggal --}}
                     <h2 class="text-xl font-bold text-gray-800 mb-4">
                         {{ $reminder->dayText }}, {{ $reminder->dayNumber }} {{ $reminder->month }}
                         {{ $reminder->year }}
@@ -53,7 +42,6 @@
                 <br>
 
             @empty
-                {{-- Tampilan kalau array dummy di atas kamu kosongin ($reminders = []) --}}
                 <div class="text-center text-gray-500 mt-12">
                     No reminders yet. Complete your daily health data in the Dashboard to see reminders here!
                 </div>
