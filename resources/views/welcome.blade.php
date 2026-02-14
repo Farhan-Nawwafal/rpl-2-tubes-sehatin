@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heylth - Ayo Hidup Sehat</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-[#f3f3f3]">
@@ -91,8 +92,6 @@
 
                 {{-- Image Content --}}
                 <div class="flex justify-center order-1 md:order-2">
-                    {{-- Pastikan gambar sudah ada di public/img/heylth-icon.png --}}
-                    {{-- Jika belum ada gambar, bisa pakai placeholder sementara --}}
                     <img src="{{ asset('assets/heylth-icon.png') }}" alt="Heylth Hero"
                         class="max-w-xs md:max-w-md w-full object-contain"
                         onerror="this.src='https://placehold.co/400x400?text=Heylth+Icon'">
