@@ -16,7 +16,7 @@
                 Welcome to <span class="text-[#007DFC]">Heylth</span>!
             </h1>
 
-            <form action="" method="POST" class="space-y-4">
+            <form action="{{ route('register.create') }}" method="POST" class="space-y-4">
                 @csrf
 
                 @if ($errors->any())
@@ -90,7 +90,7 @@
 
             <p class="text-center mt-6 text-gray-600">
                 Have an account?
-                <a href="{{ url('./login') }}" class="text-[#007DFC] hover:underline">
+                <a href="{{ route('login') }}" class="text-[#007DFC] hover:underline">
                     Login
                 </a>
             </p>
