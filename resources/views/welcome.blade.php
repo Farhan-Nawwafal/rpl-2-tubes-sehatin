@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heylth - Ayo Hidup Sehat</title>
+    <title>Sehatin - Ayo Hidup Sehat</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -41,7 +41,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="text-2xl font-bold">
-                    <span class="text-[#007DFC]">Heylth</span>
+                    <span class="text-[#007DFC]">Sehatin</span>
                 </div>
 
                 <div class="hidden md:flex space-x-8">
@@ -81,7 +81,7 @@
                         Ayo hidup sehat!
                     </h1>
                     <p class="text-xl text-gray-600 mb-8">
-                        Pantau pola hidupmu dengan Heylth, aplikasi yang membantu kamu menjaga kesehatan,
+                        Pantau pola hidupmu dengan Sehatin, aplikasi yang membantu kamu menjaga kesehatan,
                         mencatat aktivitas harian, dan memberikan rekomendasi gaya hidup yang lebih baik.
                     </p>
                     <a href="{{ route('register') }}"
@@ -104,12 +104,12 @@
     <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-4xl font-bold text-gray-800 mb-8">
-                Tentang <span class="text-[#007DFC]">Heylth</span>
+                Tentang <span class="text-[#007DFC]">Sehatin</span>
             </h2>
             <p class="text-lg text-gray-600 leading-relaxed">
-                Heylth adalah aplikasi untuk memantau pola hidup anda mulai dari jam tidur, berapa kali makan dalam
+                Sehatin adalah aplikasi untuk memantau pola hidup anda mulai dari jam tidur, berapa kali makan dalam
                 sehari, screen time dan mengirimkan saran kepada kalian berdasarkan pola hidup anda. Dengan fitur
-                tracking yang lengkap dan rekomendasi yang dipersonalisasi, Heylth membantu Anda mencapai gaya hidup
+                tracking yang lengkap dan rekomendasi yang dipersonalisasi, Sehatin membantu Anda mencapai gaya hidup
                 yang lebih sehat dan seimbang.
             </p>
         </div>
@@ -119,7 +119,7 @@
     <section id="features" class="py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-gray-800 text-center mb-16">
-                Fitur <span class="text-[#007DFC]">Heylth</span>
+                Fitur <span class="text-[#007DFC]">Sehatin</span>
             </h2>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -146,7 +146,7 @@
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <h3 class="text-2xl font-bold mb-2">
-                        <span class="text-[#007DFC]">Heylth</span>
+                        <span class="text-[#007DFC]">Sehatin</span>
                     </h3>
                     <p class="text-gray-400">
                         Aplikasi untuk gaya hidup yang lebih sehat
@@ -171,7 +171,7 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Kontak</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li>Email: info@heylth.com</li>
+                        <li>Email: info@Sehatin.com</li>
                         <li>Phone: +62 812-3456-7890</li>
                     </ul>
                 </div>
@@ -179,7 +179,7 @@
 
             <div class="border-t border-gray-700 pt-8">
                 <p class="text-center text-gray-400">
-                    &copy; 2024 Heylth. All rights reserved.
+                    &copy; 2026 Sehatin. All rights reserved.
                 </p>
             </div>
         </div>
